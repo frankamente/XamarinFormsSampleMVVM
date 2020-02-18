@@ -2,13 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SideProject"
-             x:Class="SideProject.MainPage">
+             x:Class="SideProject.MainPage"
+             BindingContext="{Binding ContactInformationViewModel, Source={StaticResource ViewModelLocator}}">
 
+    <!--<ContentPage.BindingContext>
+        <local:ViewModels.ContactInformationViewModel/>
+    </ContentPage.BindingContext>-->
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label Text="{Binding Name}" FontSize="35" />
+        <Label Text="{Binding Counter}" FontSize="18" />
+        <Entry Text="{Binding NameInput}" Keyboard="Numeric" FontSize="15" />
+        <Button Text="Incrementar contador" Command="{Binding IncreaseCounterCommand}"></Button>
     </StackLayout>
+
 
 </ContentPage>
